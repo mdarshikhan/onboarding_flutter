@@ -1,16 +1,29 @@
-# onboardingdemo
+# OnBoardingDemo
 
-A new Flutter project.
+This is a demonstration how to create onboarding screen in flutter
 
-## Getting Started
+## How to clone the repo
 
-This project is a starting point for a Flutter application.
+Open terminal in your computer 
 
-A few resources to get you started if this is your first Flutter project:
+Run the follwing command
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+`git clone https://github.com/mdarshikhan/onboarding_flutter`
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## How to fork the repo
+
+### Click on the fork button on top right 
+
+![image](https://user-images.githubusercontent.com/92669664/193650383-d01a13a3-6b22-4ff5-9059-fc945887c2dc.png)
+
+### Add a description(Optional) and click on create fork
+
+![image](https://user-images.githubusercontent.com/92669664/193650628-c191e195-f8b8-4449-a486-e53094ebc674.png)
+
+Voila!!!!! You're Done 🥳
+
+Now you can clone the repo and work on it. 
+
+## Don't forget to read the CONTRIBUTION.md
+
+## This repo is marked as  `hacktoberfest` so you can contribute in it. 
