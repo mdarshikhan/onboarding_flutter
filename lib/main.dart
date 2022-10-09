@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 void main() {
   runApp(const MyApp());
@@ -196,7 +197,22 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           children: [
             TextButton(
                 onPressed: () => controller.jumpToPage(2),
-                child: const Text('SKIP')),
+                child: const Text('SKIP')
+            ),
+            Center(
+              child: SmoothPageIndicator(
+                controller: controller,
+                count: 3,
+                effect: WormEffect(
+                  spacing: 16,
+                  dotColor: Colors.black26,
+                  activeDotColor: Colors.teal.shade700
+                ),
+                onDotClicked: (index) =>controller.animateToPage(index, duration: const Duration(milliseconds: 500),
+                    curve: Curves.easeIn
+                ),
+              ),
+            ),
             TextButton(
                 onPressed: () => controller.nextPage(
                     duration: const Duration(milliseconds: 500),
