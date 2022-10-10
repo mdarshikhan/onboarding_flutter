@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 void main() {
   runApp(const MyApp());
@@ -137,6 +138,42 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
     });
   }
 
+  Widget buildPage({
+  required Color color,
+    required String urlImage,
+    required String title,
+    required String subTitle
+
+}) => Container(
+    color: color,
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Image.asset(urlImage,
+        fit: BoxFit.cover,
+          width: double.infinity,
+        ),
+        const SizedBox(height: 64),
+        Text(
+          title,
+          style: TextStyle(
+            color: Colors.teal.shade700,
+            fontSize: 32,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(height: 24),
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Text(
+            subTitle,
+            style: const TextStyle(color: Colors.brown),
+          ),
+        )
+      ],
+    ),
+  );
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -156,18 +193,24 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
               setState(() => isLastPage = index == 2);
             },
             children: [
-              Container(
-                color: Colors.red,
-                child: const Center(child: Text("Page1")),
+              buildPage(
+                color: Colors.green.shade100,
+                urlImage: 'assets/page1.jpg',
+                title: 'REDUCE',
+                subTitle: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry'
               ),
-              Container(
-                color: Colors.green,
-                child: const Center(child: Text("Page2")),
+              buildPage(
+                  color: Colors.green.shade100,
+                  urlImage: 'assets/page2.jpg',
+                  title: 'RECYCLE',
+                  subTitle: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry'
               ),
-              Container(
-                color: Colors.blue,
-                child: const Center(child: Text("Page3")),
-              )
+              buildPage(
+                  color: Colors.green.shade100,
+                  urlImage: 'assets/page3.jpg',
+                  title: 'REUSE',
+                  subTitle: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry'
+              ),
             ],
           )),
       bottomSheet: isLastPage
@@ -196,7 +239,22 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           children: [
             TextButton(
                 onPressed: () => controller.jumpToPage(2),
-                child: const Text('SKIP')),
+                child: const Text('SKIP')
+            ),
+            Center(
+              child: SmoothPageIndicator(
+                controller: controller,
+                count: 3,
+                effect: WormEffect(
+                  spacing: 16,
+                  dotColor: Colors.black26,
+                  activeDotColor: Colors.teal.shade700
+                ),
+                onDotClicked: (index) =>controller.animateToPage(index, duration: const Duration(milliseconds: 500),
+                    curve: Curves.easeIn
+                ),
+              ),
+            ),
             TextButton(
                 onPressed: () => controller.nextPage(
                     duration: const Duration(milliseconds: 500),
