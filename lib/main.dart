@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: OnBoardingPage(),
+      home: const OnBoardingPage(),
     );
   }
 }
@@ -138,13 +138,13 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
     });
   }
 
+   //Build page Widget for each Slider
   Widget buildPage({
   required Color color,
     required String urlImage,
     required String title,
     required String subTitle
-
-}) => Container(
+  }) => Container(
     color: color,
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -216,10 +216,9 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
       bottomSheet: isLastPage
           ? TextButton(
           style: TextButton.styleFrom(
-              shape: RoundedRectangleBorder(
+              foregroundColor: Colors.white, shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(0)
               ),
-              primary: Colors.white,
               backgroundColor: Colors.teal.shade700,
               minimumSize: const Size.fromHeight(80)),
           onPressed: () async {
